@@ -1,0 +1,151 @@
+// -----------------------------------------------------------------------------
+// GRID
+// -----------------------------------------------------------------------------
+@import "components/grid";
+// -----------------------------------------------------------------------------
+// MIXIN
+// -----------------------------------------------------------------------------
+@import "components/mixin-animations";
+// -----------------------------------------------------------------------------
+// FUNCTIONS
+// -----------------------------------------------------------------------------
+@import "components/functions";
+// -----------------------------------------------------------------------------
+// SLIDER
+// -----------------------------------------------------------------------------
+@import "components/slider";
+// -----------------------------------------------------------------------------
+// FONT
+// -----------------------------------------------------------------------------
+@import "components/font";
+// -----------------------------------------------------------------------------
+// PIE BARCHART
+// -----------------------------------------------------------------------------
+@import "components/pieBarChart";
+
+
+html,
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    position:fixed;
+    top:0px;
+    left:0px;
+    right: 0px;
+    bottom:0px;
+    overflow:hidde;
+    color:#fff;
+    text-align: center;
+}
+
+html{
+    background-image:url("../assets/imgs/back.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+h1{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+.page{
+    position:absolute;
+    top:0px;
+    right: 0px;
+    bottom:0px;
+    left: 0px;
+    z-index: -2;
+    visibility: hidden;
+    &.active{
+        z-index: 1;
+        visibility: visible;
+
+    }
+}
+
+.centerInPage{
+    position: absolute;
+    padding: $padding;
+    top: 50%;
+    left:50%;
+    @include translate(-50%,-50%);
+}
+
+form{
+    position:relative;
+    .section{
+        position:relative;
+        display: block;
+    }
+    button{
+        display: none;
+        position:absolute;
+        top:50%;
+        left:50%;
+        @include translate(-50%,-50%);
+        z-index: 99;
+        border-radius:50%;
+        border:none;
+        width:60px;
+        height: 60px;
+        background: radial-gradient(circle at 120% 120%,#fcfcfc,#efeff1 0%,#9b5050 100%);
+        -webkit-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
+        -moz-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
+        box-shadow: inset 0px 0px 20px -10px #000;
+        font-weight: 800;
+        &:hover{
+            background: radial-gradient(circle at 50% 50%,#fcfcfc,#804242 0%,#9b5050 100%);
+        }
+    }
+}
+
+
+#volume{
+    text-align: center;
+    margin: 10 auto;
+}
+
+#barchart{
+    position:absolute;
+    height: 150px;
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    text-align: center;
+    .bar{
+        opacity: 0.4;
+    }
+
+    .parameters{
+        font-size: 10px; 
+        color:rgba(#fff,0.6);
+    }
+}
+
+
+
+
+#slider  {
+    height: 160px !important;
+    width: 100% !important;
+    overflow: hidden;
+    padding: 10px;
+    position:relative;
+}
+#slider .rs-container  {
+    left: 50%;
+    margin-left: -300px;
+}
+#slider .rs-tooltip  {
+    top: 100px;
+}
+
+
