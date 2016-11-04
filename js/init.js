@@ -6,36 +6,6 @@ var reports=[];
 var bottomBarcart;
 $(document).ready(function() {
 
-    
-    /*$('.page').each(function(){
-        var pageIndex=$(this).index();
-        $(this).hammer().bind("swiperight",function(ev){
-            var $active=$('.active');
-            console.log($active.prev().length);
-            if($active.prev().length>0){
-                var prev=$active.prev();
-                $active.removeClass('active');
-                prev.addClass('active');
-            }
-            
-        }).bind("swipeleft",function(ev){
-            var $active=$('.active');
-            console.log($active.next().length);
-            if($active.next().length>0){
-                var next=$active.next();
-                $active.removeClass('active');
-                next.addClass('active');
-            }
-             
-        });
-    });*/
-   
-
-    /*
-    getJson('statics/revisiones',function(){
-        
-    });*/
-
 
     getJson("reports",function(){
         reports=this;
@@ -52,36 +22,22 @@ $(document).ready(function() {
                 {"parameter":"91-100","total":1},      
             ];
         }
-        bottomBarcart= new barchart('#barchart',reports);
+        //bottomBarcart= new barchart('#barchart',reports);
     });
 
-
-    $("#volume").roundSlider({
-          sliderType: "min-range",
-            circleShape: "full",
-            min: 10,
-            max: 100,
-            value: 95,
-            startAngle: 90,
-            showTooltip:false,
-            radius: (($( window ).innerHeight())/4) - 30,
-            width: 20,
-            handleShape: "dot",
-            create:function(args){
-                var value=args.value;
-                $('form button').show(value);
-                $('form button').text(value);
-            },
-            change: function (args) {
-               var value=args.value;
-               $('#number').val(value);
-               $('form button').text(value);
-            }
-    });
 
     
     $('form').on('submit', function(e) {
         e.preventDefault();
+
+
+        var $active=$('.active');
+        if($active.next().length>0){
+            var next=$active.next();
+            $active.removeClass('active');
+            next.addClass('active');
+        }
+
 
         $('form button').trigger( "blur" );   
         var formData = $(this).serializeObject();
@@ -123,7 +79,7 @@ $(document).ready(function() {
             dataType: 'json',
             data: jsonString,
             success: function(data, status) {
-                bottomBarcart.update(data);
+                //bottomBarcart.update(data);
             },
             error: function(request, status, error) {
 

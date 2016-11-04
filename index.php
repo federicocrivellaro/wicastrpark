@@ -17,22 +17,30 @@
   <div class="pages">
     <div class="page active">
         <h1 class="title">
-          Welcome<br/> 
-          the music is set at
-          <span class="decibels">95db</span>
+          Welcome to Crivellaro Park<br/><br/>
+          Current Rule in the Park is:<br/>  
+          DOGS CAN BE OFF LEADS
         </h1>
-        <p>Set your ideal volume.<br/>
-        It will be adjusted every 30 minutes<br/> based on average preference</p>
-      <form action="/post.php" method="post">
-        <section>
-          <div class="control">
-              <div id="volume"></div>
-          </div>
-        </section>
-        <button type="submit"></button>
-      </form>
+
+        <p>How do you feel about dogs?  Are you fine with them..</p>
+        <form action="/post.php" method="post">
+          <select value="1">
+            <option value="1">running free</option>
+            <option value="2">On leads</option>
+            <option value="3">Big ones on leads</option>
+            <option value="4">Prefer no dogs</option>
+          </select>
+          <button type="submit">SUBMIT</button>
+        </form>
       <div class="counter"></div>
       <div id="barchart"></div>
+    </div>
+    <div class="page">
+        <h1 class="title">
+          Here is your park vote and ticket:<br/>
+          
+        </h1>
+        
     </div>
   </div>  
 
@@ -45,15 +53,10 @@
   <!-- build:js js/js.min.js-versioname- -->
   <script type="text/javascript" src="assets/libraries/jquery/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="assets/libraries/jquery/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="assets/libraries/hammer/hammer.min.js"></script>
-  <script type="text/javascript" src="assets/libraries/hammer/jquery.hammer.js"></script>
-  <script type="text/javascript" src="assets/libraries/hammer/hammer-time.min.js"></script>
-  <script type="text/javascript" src="assets/libraries/roundSlider-1.3/roundslider.min.js"></script>
   <script type="text/javascript" src="assets/libraries/d3/d3.min.js"></script>
   <script type="text/javascript" src="js/common.js"></script>
   <script type="text/javascript" src="js/dataCheckConversion.js"></script>
   <script type="text/javascript" src="js/form.js"></script>
-  <script type="text/javascript" src="js/barchart.js"></script>
   <script type="text/javascript" src="js/init.js"></script>
 
     <!-- /build -->
