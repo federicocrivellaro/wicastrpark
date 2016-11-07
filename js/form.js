@@ -19,8 +19,8 @@ function buildReport(){
     report.coordinates=[];
     report.domain_id=domain._id;
     report.client_id=domain.client_id;
-    report.type_id =categories[0].types[0].type_id;
-    report.type_name =categories[0].types[0].type_name;
+    report.type_id ="1234567"
+    report.type_name ="default";
 }
 
 function drawForm() {
@@ -543,7 +543,6 @@ function closeAfterPost(){
     $('#gth_form')[0].reset();
     $('.editReportFieldBtnGroup button').removeClass('btn-primary');
     $('.editReportFieldBtnGroup button').removeClass('btn-primary');
-    $('.pictureField label img').attr('src',defaultSrc);
     $('#submittingForm').hide();
     $('#gth_thanks').show();
     buildReport();

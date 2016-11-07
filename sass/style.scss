@@ -87,14 +87,26 @@ form{
         position:relative;
         display: block;
     }
-    button{
-       
+    .btn{
+        z-index: 99;
+        border:none;
+        width:100%;
+        height: 40px;
+        margin-top: 4px;
+        background: transparent;
+        font-weight: 800;
+    }
+    .btn-primary{
+         background-color: rgba(#fff,0.1);
+    }
+
+    button[type="submit"]{
         z-index: 99;
         border:none;
         width:100%;
         height: 60px;
         margin-top:30px;
-        background: #000;
+        background: #5fba7d;
         -webkit-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
         -moz-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
         box-shadow: inset 0px 0px 20px -10px #000;
@@ -102,6 +114,7 @@ form{
         &:hover{
             background: radial-gradient(circle at 50% 50%,#fcfcfc,#804242 0%,#9b5050 100%);
         }
+
     }
 }
 
@@ -144,6 +157,39 @@ form{
 }
 #slider .rs-tooltip  {
     top: 100px;
+}
+
+
+
+.background{
+    width:100%;
+    height: 100%;
+    background-image:url("../assets/imgs/park.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .overblock{
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        width:100%;
+        background-color: rgba(#000,0.7);
+        .content{
+            position:absolute;
+            top:50%;
+            left:50%;
+            color:#fff;
+            width:80%;
+            @include translate(-50%,-50%);
+            h1{
+                
+                font-size: 2rem;
+            }
+            img{
+                width: 40%;
+            }
+        }
+    }
 }
 
 

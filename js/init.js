@@ -2,9 +2,32 @@ var baseRoot = "https://gather.siineserver.com/GatherServerLive/";
 var client_id = '57fc9a300a975a4e89011758';
 var domain_id = '57fc9edc0a975a4e8901175d';
 
+var domain;
 var reports=[];
 var bottomBarcart;
+var uuid;
+
 $(document).ready(function() {
+
+    uuid=checkCookie("GatherWidgetID");
+     // GET DOMAIN
+    $.ajax({
+        // Post select to url.
+        type: 'post',
+        url: 'getDomain.php',
+        dataType: 'json',
+        success: function(data) {
+            domain = data;
+            console.log(domain)
+            drawForm();
+        },
+        error: function(data) {
+            console.log("error");
+        },
+        complete: function(data) {
+            
+        }
+    });
 
 
     getJson("reports",function(){
