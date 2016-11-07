@@ -50,66 +50,7 @@ $(document).ready(function() {
 
 
     
-    $('form').on('submit', function(e) {
-        e.preventDefault();
 
-
-        var $active=$('.active');
-        if($active.next().length>0){
-            var next=$active.next();
-            $active.removeClass('active');
-            next.addClass('active');
-        }
-
-
-        $('form button').trigger( "blur" );   
-        var formData = $(this).serializeObject();
-        var val=formData.volume;
-
-
-        var index=0;
-        
-        if(val>20 && val<31){
-            index=1;
-        }else if(val>30 && val<41){
-            index=2;
-        }else if(val>40 && val<51){
-            index=3;
-        }else if(val>50 && val<61){
-            index=4;
-        }else if(val>60 && val<71){
-            index=5;
-        }else if(val>70 && val<81){
-            index=6;
-        }else if(val>80 && val<91){
-            index=7;
-        }else if(val>90){
-            index=8;
-        }
-
-        reports[index].total=reports[index].total+1;
-
-        jsonString=JSON.stringify(reports);
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: 'POST',
-            url: 'post.php',
-            cache: false,
-            timeout: 2000,
-            dataType: 'json',
-            data: jsonString,
-            success: function(data, status) {
-                //bottomBarcart.update(data);
-            },
-            error: function(request, status, error) {
-
-            }
-        });
-    });
-    
 
     function getJson(file,callback) {
         $.ajax({

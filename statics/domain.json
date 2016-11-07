@@ -25,7 +25,7 @@
 		"label": "How do you feel about dogs?<br/>Are you fine with them..",
 		"description": "",
 		"textOptions": ["Running free", "On leads", "Big ones on leads", "Prefer no dogs"],
-		"mandatory": false,
+		"mandatory": true,
 		"multiselection": false,
 		"id": "581731800a975a2f4cc8ecdc"
 	}],

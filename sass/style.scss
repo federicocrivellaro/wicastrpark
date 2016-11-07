@@ -159,7 +159,9 @@ form{
     top: 100px;
 }
 
-
+.promo{
+    text-transform: uppercase;
+}
 
 .background{
     width:100%;
@@ -182,11 +184,14 @@ form{
             width:80%;
             @include translate(-50%,-50%);
             h1{
-                
+                margin: 0px;
                 font-size: 2rem;
             }
             img{
                 width: 40%;
+                &.full{
+                    width: 100%;
+                }
             }
         }
     }

@@ -25,8 +25,21 @@
               <hr/>
               <form id="gth_form">
                 <div class="formfields"></div>
-                <button type="submit">ENVIAR</button>
+                <button type="submit">GET 10% DISCOUNT ON <br>Playstation Store</button>
               </form>
+           </div>  
+          </div>
+      </div>        
+    </div>
+    <div class="page">
+       <div class="background">
+          <div class="overblock">
+            <div class="content">
+              <p>Thank you!<br/>
+              Your opinion is really important to us.</p> 
+              <h1>THIS IS YUOR DISCONT CODE</h1>
+              <img class="full" src="assets/imgs/code.jpg"/>
+             
            </div>  
           </div>
       </div>        

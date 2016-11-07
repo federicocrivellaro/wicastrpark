@@ -382,8 +382,8 @@ function longToGoogleLocaleString(value) {
 
 $('#gth_form').on('submit',function (e) {
     e.preventDefault();
-    $('#submittingForm').show();
-    var submitButton=$('button[type=submit]',this);
+
+
     report.insert_time=new Date().getTime();
     report.uuid=uuid;
     report.source="WEB";
@@ -405,28 +405,15 @@ $('#gth_form').on('submit',function (e) {
             }
         }
     }
+
     if(reporteReady!=true){
-        var $message=$('<div class="alert alert-danger" role="alert" id="alertMessage">Please fill all the mandatory ( symbol * ) fields</div>')    
-        $(submitButton).after($message);
+        var $message=$('<div class="alert alert-danger" role="alert" id="alertMessage">Please fill all the mandatory ( * ) fields</div>')    
+         $('button[type=submit]').after($message);
         setTimeout(function(){
             $('#alertMessage').remove();    
             $('button[type=submit]').removeAttr('disabled');
         }, 3000);       
     }else{
-        /*var messages=composeMessages(); 
-        report.map_text=messages[0];
-        if(socialPublish[0]==true){
-            report.fb_text=messages[1];
-        }else{
-            report.fb_text=null;
-        }
-        if(socialPublish[1]==true){
-            report.twitter_text=messages[2];
-        }else{
-            report.twitter_text=null;
-        }*/
-
-
         sendReport();
     }
 });
@@ -511,32 +498,33 @@ function sendReport(){
     var reportContainer=new Object;
     reportContainer.entity=report;
     var jsonString = JSON.stringify(reportContainer);
-    doRequestNoHeader(baseRoot+"SaveEntity",jsonString, function () {
-        var savedObj = this;
-        if(checkSourceAvailable(savedObj.blocked)==true && savedObj.blocked==true){
-            $('#gth_blocked').show();
-            setTimeout(function(){
-                $('#gth_blocked').fadeOut();
-                toggleViews('gth_buttonsContainer');
-            },2000);
-                
-        }else{
-            
-            /*
-            if(socialPublish[0]==true){
-                setTimeout(function(){
-                    startFacebook();
-                },5000);
+
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: 'POST',
+        url: 'post.php',
+        cache: false,
+        timeout: 2000,
+        dataType: 'json',
+        data: jsonString,
+        success: function(data, status) {
+            closeAfterPost();    
+            var $active=$('.active');
+            if($active.next().length>0){
+                var next=$active.next();
+                $active.removeClass('active');
+                next.addClass('active');
             }
-            if(socialPublish[1]==true){
-                setTimeout(function(){
-                    startTwitter();
-                },1000);
-            }
-            */
-            closeAfterPost();           
+        },
+        error: function(request, status, error) {
+
         }
     });
+
+    
 }
 
 function closeAfterPost(){
