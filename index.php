@@ -25,7 +25,7 @@
               <hr/>
               <form id="gth_form">
                 <div class="formfields"></div>
-                <button type="submit">GET 10% DISCOUNT ON <br>Playstation Store</button>
+                <button type="submit">Contribute your Vote</button>
               </form>
            </div>  
           </div>
